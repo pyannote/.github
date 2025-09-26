@@ -2,7 +2,7 @@
 
 ## 💚 Simply detect, segment, label, and separate speakers in any language 
 
-[🎈 `pyannoteAI` playground](https://dashboard.pyannote.ai/) // [📚 `pyannoteAI` documentation](https://docs.pyannote.ai/) // [🎹 `pyannote` open-source toolkit](https://github.com/pyannote/pyannote-audio) // [🤗 `pyannote` pretrained models](https://huggingface.co/pyannote) // ![Github stars](https://img.shields.io/github/stars/pyannote/pyannote-audio?color=g) ![PyPI Downloads](https://static.pepy.tech/personalized-badge/pyannote-audio?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=downloads)
+[🎈 playground](https://dashboard.pyannote.ai/) // [📚 documentation](https://docs.pyannote.ai/) // [🎹 open-source toolkit](https://github.com/pyannote/pyannote-audio) // [🤗 pretrained models](https://huggingface.co/pyannote) // ![Github stars](https://img.shields.io/github/stars/pyannote/pyannote-audio?color=g) ![PyPI Downloads](https://static.pepy.tech/personalized-badge/pyannote-audio?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=downloads)
 
 
 ### 🎤 What is speaker diarization?
