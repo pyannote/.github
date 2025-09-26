@@ -64,7 +64,7 @@ __[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.
 
 ### ⏩️ Going further, better, and faster
 
-[`precision-2`](https://www.pyannote.ai/blog/precision-2) premium pipeline further improves accuracy, processing speed, as well as brings additional features.
+[`precision-2`](https://www.pyannote.ai/blog/precision-2) premium model further improves accuracy, processing speed, as well as brings additional features.
 
 | Features | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://docs.pyannote.ai">`precision-2`</a> |
 | -------------- | ----------- | ----------- | 
