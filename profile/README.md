@@ -2,8 +2,16 @@
 
 ## 💚 Simply detect, segment, label, and separate speakers in any language 
 
-[🎈 playground](https://dashboard.pyannote.ai/) // [📚 documentation](https://docs.pyannote.ai/) // [🎹 open-source toolkit](https://github.com/pyannote/pyannote-audio) // [🤗 pretrained models](https://huggingface.co/pyannote) // ![Github stars](https://img.shields.io/github/stars/pyannote/pyannote-audio?color=g) ![PyPI Downloads](https://static.pepy.tech/personalized-badge/pyannote-audio?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=downloads)
+<div align="center">
+  <a href="https://github.com/pyannote/pyannote-audio"><img alt="Github" src="https://img.shields.io/badge/Open%20source%20toolkit-059669?style=flat&logo=github&logoColor=FFFFFF"></a>
+  <a href="https://hf.co/pyannote"><img alt="Hugging Face" src="https://img.shields.io/badge/Open%20models-059669?style=flat&logo=huggingface&logoColor=FFFFFF"></a>
+  <a href="https://discord.gg/4cjCJcZv"><img alt="Discord" src="https://img.shields.io/badge/Discord-059669?style=flat&logo=discord&logoColor=white"></a>
+  <a href="https://www.linkedin.com/company/pyannoteai/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-059669?style=flat&logo=linkedin&logoColor=white"></a>
+  <a href="https://x.com/pyannoteAI"><img alt="X" src="https://img.shields.io/badge/X-059669?style=flat&logo=x&logoColor=white"></a><br/>
+  <a href="https://dashboard.pyannote.ai/"><img alt="Playground" src="https://img.shields.io/badge/-Playground-059669?style=flat"></a> 
+  <a href="https://docs.pyannote.ai/"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-059669?style=flat"></a> 
 
+</div>
 
 ### 🎤 What is speaker diarization?
 
@@ -84,8 +92,3 @@ Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line 
 pipeline = Pipeline.from_pretrained('pyannote/speaker-diarization-precision-2', token="PYANNOTEAI_API_KEY")
 better_output = pipeline('/path/to/audio.wav')
 ```
-
-### 🎉 Join the community
-
-[Discord](https://discord.gg/4cjCJcZv) // [X](https://x.com/pyannoteAI) // [LinkedIn](https://www.linkedin.com/company/pyannoteai/) // [Huggingface](https://hf.co/pyannote) // [Github](https://github.com/pyannote)
-
