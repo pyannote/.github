@@ -5,7 +5,7 @@
 <div align="center">
   <a href="https://github.com/pyannote/pyannote-audio"><img alt="Github" src="https://img.shields.io/badge/Open%20source%20toolkit-059669?style=flat&logo=github&logoColor=FFFFFF"></a>
   <a href="https://hf.co/pyannote"><img alt="Hugging Face" src="https://img.shields.io/badge/Open%20models-059669?style=flat&logo=huggingface&logoColor=FFFFFF"></a>
-  <a href="https://discord.gg/4cjCJcZv"><img alt="Discord" src="https://img.shields.io/badge/Discord-059669?style=flat&logo=discord&logoColor=white"></a>
+  <a href="https://discord.gg/vux8UH9QmV"><img alt="Discord" src="https://img.shields.io/badge/Discord-059669?style=flat&logo=discord&logoColor=white"></a>
   <a href="https://www.linkedin.com/company/pyannoteai/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-059669?style=flat&logo=linkedin&logoColor=white"></a>
   <a href="https://x.com/pyannoteAI"><img alt="X" src="https://img.shields.io/badge/X-059669?style=flat&logo=x&logoColor=white"></a><br/>
   <a href="https://dashboard.pyannote.ai/"><img alt="Playground" src="https://img.shields.io/badge/-Playground-059669?style=flat"></a> 
