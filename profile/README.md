@@ -103,7 +103,7 @@ We host open-source transcription models like [**Nvidia Parakeet-tdt-0.6b-v3**]
 
 STT orchestration orchestrates pyannoteAI diarization `Precision-2` with transcription services. Instead of running diarization and transcription separately, then reconciling outputs manually, you make one API call and receive speaker-attributed transcripts.
 
-![STT Orchestration](https://framerusercontent.com/images/l9F2OyD3HVKdlgtxm1j10fjk.png?scale-down-to=1024&width=2028&height=957)
+![STT Orchestration](stt-orchestration.png)
 
 To use this feature, make a request to the diarize API endpoint with the `transcription:true` flag.
 
