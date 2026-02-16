@@ -13,6 +13,8 @@
 
 </div>
 
+[pyannoteAI](https://www.pyannote.ai/) facilitates the understanding of speakers and conversation context. We focus on identifying speakers and conversation metadata under conditions that reflect real conversations rather than controlled recordings.
+
 ### 🎤 What is speaker diarization?
 
 ![Diarization](diarization.jpg)
@@ -70,6 +72,8 @@ Read [`community-1` model card](https://hf.co/pyannote/speaker-diarization-commu
 
 __[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.html#diarization) (in %, the lower, the better)__
 
+Our models achieve competitive performance across multiple public diarization datasets, explore pyannoteAI performance benchmark ➡️ [https://www.pyannote.ai/benchmark](https://www.pyannote.ai/benchmark)
+
 ### ⏩️ Going further, better, and faster
 
 [`precision-2`](https://www.pyannote.ai/blog/precision-2) premium model further improves accuracy, processing speed, as well as brings additional features.
@@ -82,6 +86,7 @@ __[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.
 | Speaker confidence scores | ❌ | ✅ |
 | Voiceprinting | ❌ | ✅ |
 | Speaker identification | ❌ | ✅ |
+| STT Orchestration | ❌ | ✅ |
 | Time to process 1h of audio (on H100) | 37s | 14s |
 
 
@@ -92,3 +97,31 @@ Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line 
 pipeline = Pipeline.from_pretrained('pyannote/speaker-diarization-precision-2', token="PYANNOTEAI_API_KEY")
 better_output = pipeline('/path/to/audio.wav')
 ```
+### 🔌 Get speaker-attributed transcripts
+
+We host open-source transcription models like [**Nvidia Parakeet-tdt-0.6b-v3**](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) and [**OpenAI whisper-large-v3-turbo**](https://huggingface.co/dropbox-dash/faster-whisper-large-v3-turbo) with specialized STT + diarization reconciliation logic for speaker-attributed transcripts.
+
+STT orchestration orchestrates pyannoteAI diarization `Precision-2` with transcription services. Instead of running diarization and transcription separately, then reconciling outputs manually, you make one API call and receive speaker-attributed transcripts.
+
+![STT Orchestration](https://framerusercontent.com/images/l9F2OyD3HVKdlgtxm1j10fjk.png?scale-down-to=1024&width=2028&height=957)
+
+To use this feature, make a request to the diarize API endpoint with the `transcription:true` flag.
+
+```python
+# pip install pyannoteai-sdk
+
+from pyannoteai.sdk import Client
+client = Client("your-api-key")
+
+job_id = client.diarize(
+	"[https://www.example/audio.wav](https://www.example/audio.wav)",
+	transcription=True)
+
+job_output = client.retrieve(job_id)
+
+for word in job_output['output']['wordLevelTranscription']:
+	print(word['start'], word['end'], word['speaker'], word['text'])
+
+for turn in job_output['output']['turnLevelTranscription']:
+	print(turn['start'], turn['end'], turn['speaker'], turn['text'])
+
