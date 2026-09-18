@@ -74,20 +74,37 @@ __[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.
 
 Our models achieve competitive performance across multiple public diarization datasets, explore pyannoteAI performance benchmark ➡️ [https://www.pyannote.ai/benchmark](https://www.pyannote.ai/benchmark)
 
+[`precision-3`](https://www.pyannote.ai/blog/precision-3) is our latest paid model: **14.35 DER against `precision-2`'s 16.02**, averaged over 15 benchmark datasets, a 10.4% relative reduction. Over half of that gain comes from better speaker attribution, with speech assigned to the wrong speaker 18.7% less often. Full per-dataset results, including against `community-1`, are in the [`precision-3` benchmarks post](https://www.pyannote.ai/blog/precision-3-benchmarks).
+
 ### ⏩️ Going further, better, and faster
 
 [`precision-2`](https://www.pyannote.ai/blog/precision-2) premium model further improves accuracy, processing speed, as well as brings additional features.
 
-| Features | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://docs.pyannote.ai">`precision-2`</a> |
-| -------------- | ----------- | ----------- | 
-| Set exact/min/max number of speakers | ✅ | ✅ |
-| Exclusive speaker diarization (for transcription) | ✅ | ✅ |
-| Segmentation confidence scores | ❌ | ✅ |
-| Speaker confidence scores | ❌ | ✅ |
-| Voiceprinting | ❌ | ✅ |
-| Speaker identification | ❌ | ✅ |
-| STT Orchestration | ❌ | ✅ |
-| Time to process 1h of audio (on H100) | 37s | 14s |
+| Features | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://docs.pyannote.ai">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> |
+| -------------- | ----------- | ----------- | ----------- |
+| Set exact/min/max number of speakers | ✅ | ✅ | ✅ |
+| Exclusive speaker diarization (for transcription) | ✅ | ✅ | ✅ |
+| Segmentation confidence scores | ❌ | ✅ | ✅ ¹ |
+| Speaker confidence scores | ❌ | ✅ | ✅ |
+| Voiceprinting | ❌ | ✅ | ✅ |
+| Speaker identification | ❌ | ✅ | ✅ |
+| STT Orchestration | ❌ | ✅ | ² |
+| VAD & cross-talk sensitivity controls | ❌ | ❌ | ✅ |
+| Frame-level speech / cross-talk / speaker probabilities | ❌ | ❌ | ✅ |
+| Speed / balance / accuracy operating modes (on-prem) | ❌ | ❌ | ✅ |
+| Time to process 1h of audio (on H100) | 37s | 14s | ³ |
+
+<sub>¹ In `precision-3` the frame-level segmentation `confidence` output is superseded by `speechProbability`, `crosstalkProbability` and `speakerProbability`. `turnLevelConfidence` is unchanged.</sub>
+
+<!-- TODO before opening the PR:
+     ² STT Orchestration on precision-3 is UNCONFIRMED. The API docs currently state that transcription is
+       "only available for the precision-2 diarization model", and the 31 Aug decision was to keep the
+       precision-2 config for STT until precision-3 is the only model. Confirm with Antoine/Shen whether
+       `transcription: true` works with `model: precision-3`, then set this cell.
+     ³ No H100 figure exists for precision-3. Published timings are B200 (accuracy 3.05s / balance 1.43s /
+       speed 0.97s per hour of audio). Get an H100 number from engineering or split this row by GPU.
+       Do NOT put a B200 number into an H100 row.
+     Also confirm the precision-3 cells for Voiceprinting and Speaker identification. -->
 
 
 Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line of code, and enjoy free cloud credits to try [`precision-2`](https://pyannote.ai/blog/precision-2) premium diarization:
@@ -97,6 +114,37 @@ Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line 
 pipeline = Pipeline.from_pretrained('pyannote/speaker-diarization-precision-2', token="PYANNOTEAI_API_KEY")
 better_output = pipeline('/path/to/audio.wav')
 ```
+### 🎛️ `precision-3`: the same diarization, now tunable
+
+[`precision-3`](https://www.pyannote.ai/blog/precision-3) is the most accurate model we have shipped, and the first to expose the machinery behind its decision, at the same price as [`precision-2`](https://www.pyannote.ai/blog/precision-2).
+
+Two sensitivity parameters bias the model toward the error type you care about:
+
+| Parameter | Range | Effect |
+| -------------- | ----------- | ----------- |
+| `vadSensitivity` | -5.0 to 5.0, default 0 | Adjusts voice activity detection sensitivity |
+| `crosstalkSensitivity` | -5.0 to 5.0, default 0 | Adjusts overlap and cross-talk sensitivity |
+
+Three frame-level probabilities let your own product logic make the call:
+
+| Output | What it answers |
+| -------------- | ----------- |
+| `speakerProbability` | How likely it is that this specific speaker is active on this frame |
+| `crosstalkProbability` | How likely it is that there is cross-talk on this frame |
+| `speechProbability` | How likely it is that there is speech on this frame |
+
+```python
+# perform premium speaker diarization on pyannoteAI cloud
+pipeline = Pipeline.from_pretrained('pyannote/speaker-diarization-precision-3', token="PYANNOTEAI_API_KEY")
+better_output = pipeline('/path/to/audio.wav')
+```
+
+On the API, set `"model": "precision-3"` in a diarization request. Existing integrations keep working unchanged, and the new parameters and outputs are opt-in. On-premises deployments additionally pick an operating mode per deployment: `accuracy`, `balance`, or `speed`.
+
+<!-- BLOCKER: the snippet above will fail until the HF repo pyannote/speaker-diarization-precision-3 exists.
+     As of this branch only pyannote/speaker-diarization-precision-2 is published. Create the precision-3
+     model repo (same short-stub shape as the precision-2 card) BEFORE this README goes live. -->
+
 ### 🔌 Get speaker-attributed transcripts
 
 We host open-source transcription models like [**Nvidia Parakeet-tdt-0.6b-v3**](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) and [**OpenAI whisper-large-v3-turbo**](https://huggingface.co/dropbox-dash/faster-whisper-large-v3-turbo) with specialized STT + diarization reconciliation logic for speaker-attributed transcripts.
