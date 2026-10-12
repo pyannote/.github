@@ -108,7 +108,7 @@ Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line 
 
 ```python
 # perform premium speaker diarization on pyannoteAI cloud
-pipeline = Pipeline.from_pretrained('pyannote/speaker-diarization-precision-3', token="PYANNOTEAI_API_KEY")
+pipeline = Pipeline.from_pretrained('pyannote/speaker-diarization-precision', token="PYANNOTEAI_API_KEY")
 better_output = pipeline('/path/to/audio.wav')
 ```
 
