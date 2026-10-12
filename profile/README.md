@@ -47,7 +47,6 @@ for turn, speaker in output.speaker_diarization:
 
 Read [`community-1` model card](https://hf.co/pyannote/speaker-diarization-community-1) to make the most of it.
 
-
 ### 🏆 State-of-the-art models
 
 [`pyannoteAI`](https://www.pyannote.ai/) research team trains cutting-edge speaker diarization models, thanks to [**Jean Zay**](http://www.idris.fr/eng/jean-zay/) 🇫🇷 supercomputer managed by [**GENCI**](https://www.genci.fr/) 💚. They come in two flavors:
@@ -69,39 +68,62 @@ Read [`community-1` model card](https://hf.co/pyannote/speaker-diarization-commu
 | [RAMC](https://www.openslr.org/123/)                                                                                        | 22.2 | 20.8 | 10.5 🏆 |
 | [REPERE](https://www.islrn.org/resources/360-758-359-485-0/) (phase2)                                                       | 7.9  |  8.9 |  7.4 🏆 |
 | [VoxConverse](https://github.com/joonson/voxconverse) (v0.3)                                                                | 11.2 | 11.2 |  8.5 🏆 |
+__[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.html#diarization) (in %, the lower, the better)__
+
+Compared to the [`legacy` 3.1](https://hf.co/pyannote/speaker-diarization-3.1) pipeline, [`community-1`](https://hf.co/pyannote/speaker-diarization-community-1) brings significant improvement in speaker counting and assignment. [`precision-3`](https://www.pyannote.ai/blog/precision-3) improves further still:
+
+| Benchmark (last updated in 2026-09) | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://www.pyannote.ai/blog/precision-2">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> |
+| -------------- | ----------- | ----------- | ----------- |
+| AISHELL     | 12.3 | 10.0 | 10.4 |
+| AliMeeting  | 19.6 | 14.7 | 11.1 🏆 |
+| AMI (SDM)   | 19.9 | 15.7 | 13.5 🏆 |
+| AVA-AVD     | 44.6 | 37.1 | 32.7 🏆 |
+| CALLHOME    | 27.7 | 15.7 | 15.6 🏆 |
+| DIHARD      | 20.3 | 14.7 | 14.5 🏆 |
+| MSDWild     | 23.9 | 16.4 | 15.3 🏆 |
+| NOTSOFAR    | 31.2 | 26.2 | 18.4 🏆 |
+| **Average** | **24.9** | **18.8** | **16.4** 🏆 |
 
 __[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.html#diarization) (in %, the lower, the better)__
 
-Our models achieve competitive performance across multiple public diarization datasets, explore pyannoteAI performance benchmark ➡️ [https://www.pyannote.ai/benchmark](https://www.pyannote.ai/benchmark)
+Our models achieve competitive performance across multiple public diarization datasets, explore pyannoteAI performance benchmark ➡️ [https://www.pyannote.ai/benchmark](https://www.pyannote.ai/benchmark)
 
 ### ⏩️ Going further, better, and faster
 
-[`precision-2`](https://www.pyannote.ai/blog/precision-2) premium model further improves accuracy, processing speed, as well as brings additional features.
+[`precision-3`](https://www.pyannote.ai/blog/precision-3) premium model further improves accuracy and processing speed, and brings additional features.
 
-| Features | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://docs.pyannote.ai">`precision-2`</a> |
-| -------------- | ----------- | ----------- | 
-| Set exact/min/max number of speakers | ✅ | ✅ |
-| Exclusive speaker diarization (for transcription) | ✅ | ✅ |
-| Segmentation confidence scores | ❌ | ✅ |
-| Speaker confidence scores | ❌ | ✅ |
-| Voiceprinting | ❌ | ✅ |
-| Speaker identification | ❌ | ✅ |
-| STT Orchestration | ❌ | ✅ |
-| Time to process 1h of audio (on H100) | 37s | 14s |
+| Features | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://www.pyannote.ai/blog/precision-2">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> |
+| -------------- | ----------- | ----------- | ----------- |
+| Set exact/min/max number of speakers | ✅ | ✅ | ✅ |
+| Exclusive speaker diarization (for transcription) | ✅ | ✅ | ✅ |
+| Segmentation confidence scores | ❌ | ✅ | ✅ ¹ |
+| Speaker confidence scores | ❌ | ✅ | ✅ |
+| Frame-level speech / cross-talk / speaker probabilities | ❌ | ❌ | ✅ |
+| VAD & cross-talk sensitivity controls | ❌ | ❌ | ✅ |
+| Voiceprinting | ❌ | ✅ | ✅ |
+| Speaker identification | ❌ | ✅ | ✅ |
+| STT Orchestration | ❌ | ✅ | ✅ |
+| Speed / balance / accuracy operating modes (on-prem) | ❌ | ❌ | ✅ |
+| Time to process 1h of audio (on B200) | 19.89s | 5.28s | 3.05s |
 
+<sub>¹ In `precision-3` the frame-level segmentation `confidence` output is superseded by `speechProbability`, `crosstalkProbability` and `speakerProbability`. `turnLevelConfidence` is unchanged.</sub>
 
-Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line of code, and enjoy free cloud credits to try [`precision-2`](https://pyannote.ai/blog/precision-2) premium diarization:
+Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line of code, and enjoy free cloud credits to try [`precision-3`](https://www.pyannote.ai/blog/precision-3) premium diarization:
 
 ```python
 # perform premium speaker diarization on pyannoteAI cloud
-pipeline = Pipeline.from_pretrained('pyannote/speaker-diarization-precision-2', token="PYANNOTEAI_API_KEY")
+pipeline = Pipeline.from_pretrained('pyannote/speaker-diarization-precision-3', token="PYANNOTEAI_API_KEY")
 better_output = pipeline('/path/to/audio.wav')
 ```
+
+On the API, set `"model": "precision-3"` in a diarization request. See [`docs.pyannote.ai`](https://docs.pyannote.ai) for sensitivity controls, frame-level probabilities, and on-premise operating modes.
+
+
 ### 🔌 Get speaker-attributed transcripts
 
 We host open-source transcription models like [**Nvidia Parakeet-tdt-0.6b-v3**](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) and [**OpenAI whisper-large-v3-turbo**](https://huggingface.co/dropbox-dash/faster-whisper-large-v3-turbo) with specialized STT + diarization reconciliation logic for speaker-attributed transcripts.
 
-STT orchestration orchestrates pyannoteAI diarization `Precision-2` with transcription services. Instead of running diarization and transcription separately, then reconciling outputs manually, you make one API call and receive speaker-attributed transcripts.
+STT orchestration combines pyannoteAI diarization with transcription services. Instead of running diarization and transcription separately, then reconciling outputs manually, you make one API call and receive speaker-attributed transcripts.
 
 ![STT Orchestration](stt-orchestration.png)
 
