@@ -93,21 +93,16 @@ Our models achieve competitive performance across multiple public diarization da
 
 [`precision-3`](https://www.pyannote.ai/blog/precision-3) premium model further improves accuracy and processing speed, and brings additional features.
 
-| Features | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://www.pyannote.ai/blog/precision-2">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> |
+| Features | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://docs.pyannote.ai">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> |
 | -------------- | ----------- | ----------- | ----------- |
 | Set exact/min/max number of speakers | ✅ | ✅ | ✅ |
 | Exclusive speaker diarization (for transcription) | ✅ | ✅ | ✅ |
-| Segmentation confidence scores | ❌ | ✅ | ✅ ¹ |
+| Segmentation confidence scores | ❌ | ✅ | ✅ |
 | Speaker confidence scores | ❌ | ✅ | ✅ |
-| Frame-level speech / cross-talk / speaker probabilities | ❌ | ❌ | ✅ |
-| VAD & cross-talk sensitivity controls | ❌ | ❌ | ✅ |
 | Voiceprinting | ❌ | ✅ | ✅ |
 | Speaker identification | ❌ | ✅ | ✅ |
 | STT Orchestration | ❌ | ✅ | ✅ |
-| Speed / balance / accuracy operating modes (on-prem) | ❌ | ❌ | ✅ |
-| Time to process 1h of audio (on B200) | 19.89s | 5.28s | 3.05s |
-
-<sub>¹ In `precision-3` the frame-level segmentation `confidence` output is superseded by `speechProbability`, `crosstalkProbability` and `speakerProbability`. `turnLevelConfidence` is unchanged.</sub>
+| Time to process 1h of audio (on H100) | 37s | 14s | — |
 
 Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line of code, and enjoy free cloud credits to try [`precision-3`](https://www.pyannote.ai/blog/precision-3) premium diarization:
 
