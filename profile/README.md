@@ -47,6 +47,7 @@ for turn, speaker in output.speaker_diarization:
 
 Read [`community-1` model card](https://hf.co/pyannote/speaker-diarization-community-1) to make the most of it.
 
+
 ### 🏆 State-of-the-art models
 
 [`pyannoteAI`](https://www.pyannote.ai/) research team trains cutting-edge speaker diarization models, thanks to [**Jean Zay**](http://www.idris.fr/eng/jean-zay/) 🇫🇷 supercomputer managed by [**GENCI**](https://www.genci.fr/) 💚. They come in two flavors:
@@ -86,7 +87,7 @@ Compared to the [`legacy` 3.1](https://hf.co/pyannote/speaker-diarization-3.1) p
 
 __[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.html#diarization) (in %, the lower, the better)__
 
-Our models achieve competitive performance across multiple public diarization datasets, explore pyannoteAI performance benchmark ➡️ [https://www.pyannote.ai/benchmark](https://www.pyannote.ai/benchmark)
+Our models achieve competitive performance across multiple public diarization datasets, explore pyannoteAI performance benchmark ➡️ [https://www.pyannote.ai/benchmark](https://www.pyannote.ai/benchmark)
 
 ### ⏩️ Going further, better, and faster
 
