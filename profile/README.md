@@ -75,7 +75,7 @@ Compared to the [`legacy` 3.1](https://hf.co/pyannote/speaker-diarization-3.1) p
 
 | Benchmark (last updated in 2026-09) | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://www.pyannote.ai/blog/precision-2">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> |
 | -------------- | ----------- | ----------- | ----------- |
-| AISHELL     | 12.3 | 10.0 | 10.4 |
+| AISHELL     | 12.3 | 10.0 🏆 | 10.4 |
 | AliMeeting  | 19.6 | 14.7 | 11.1 🏆 |
 | AMI (SDM)   | 19.9 | 15.7 | 13.5 🏆 |
 | AVA-AVD     | 44.6 | 37.1 | 32.7 🏆 |
