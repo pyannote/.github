@@ -71,7 +71,7 @@ Read [`community-1` model card](https://hf.co/pyannote/speaker-diarization-commu
 | [VoxConverse](https://github.com/joonson/voxconverse) (v0.3)                                                                | 11.2 | 11.2 |  8.5 🏆 |
 __[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.html#diarization) (in %, the lower, the better)__
 
-Compared to the [`legacy` 3.1](https://hf.co/pyannote/speaker-diarization-3.1) pipeline, [`community-1`](https://hf.co/pyannote/speaker-diarization-community-1) brings significant improvement in speaker counting and assignment. [`precision-3`](https://www.pyannote.ai/blog/precision-3) improves further still:
+Compared to [`community-1`](https://hf.co/pyannote/speaker-diarization-community-1), [`precision-3`](https://www.pyannote.ai/blog/precision-3) brings significant improvement:
 
 | Benchmark (last updated in 2026-09) | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://www.pyannote.ai/blog/precision-2">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> |
 | -------------- | ----------- | ----------- | ----------- |
