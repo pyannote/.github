@@ -52,23 +52,23 @@ Read [`community-1` model card](https://hf.co/pyannote/speaker-diarization-commu
 
 [`pyannoteAI`](https://www.pyannote.ai/) research team trains cutting-edge speaker diarization models, thanks to [**Jean Zay**](http://www.idris.fr/eng/jean-zay/) 🇫🇷 supercomputer managed by [**GENCI**](https://www.genci.fr/) 💚. They come in two flavors:
 
-* [`pyannote.audio`](https://github.com/pyannote/pyannote-audio) open models available on [Huggingface](https://hf.co/pyannote) and used by 140k+ developers over the world ;
+* [`pyannote.audio`](https://github.com/pyannote/pyannote-audio) open models available on [Huggingface](https://hf.co/pyannote) and used by 350k+ developers over the world ;
 * premium models available on [`pyannoteAI` cloud](https://dashboard.pyannote.ai) (and on-premise for enterprise customers) that provide state-of-the-art speaker diarization as well as additional enterprise features.
 
-| Benchmark (last updated in 2025-09) | <a href="https://hf.co/pyannote/speaker-diarization-3.1">`legacy` (3.1)</a>| <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://docs.pyannote.ai">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> | 
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------| ------------------------------------------------ | ------------------------------------------------ |
-| [AISHELL-4](https://arxiv.org/abs/2104.03603)                                                                               | 12.2 | 11.7 | 11.4 | 10.4 🏆 |
-| [AliMeeting](https://www.openslr.org/119/) (channel 1)                                                                      | 24.5 | 20.3 | 15.2 | 11.1 🏆 |
-| [AMI](https://groups.inf.ed.ac.uk/ami/corpus/) (IHM)                                                                        | 18.8 | 17.0 | 12.9 | 10.7 🏆 |
-| [AMI](https://groups.inf.ed.ac.uk/ami/corpus/) (SDM)                                                                        | 22.7 | 19.9 | 15.6 | 13.5 🏆 |
-| [AVA-AVD](https://arxiv.org/abs/2111.14448)                                                                                 | 49.7 | 44.6 | 37.1 | 32.7 🏆 |
-| [CALLHOME](https://catalog.ldc.upenn.edu/LDC2001S97) ([part 2](https://github.com/BUTSpeechFIT/CALLHOME_sublists/issues/1)) | 28.5 | 26.7 | 16.6 | 15.6 🏆 |
-| [DIHARD 3](https://catalog.ldc.upenn.edu/LDC2022S14) ([full](https://arxiv.org/abs/2012.01477))                             | 21.4 | 20.2 | 14.7 | 14.5 🏆 |
-| [Ego4D](https://arxiv.org/abs/2110.07058) (dev.)                                                                            | 51.2 | 46.8 | 39.0 | 36.8 🏆 |
-| [MSDWild](https://github.com/X-LANCE/MSDWILD)                                                                               | 25.4 | 22.8 | 17.3 | 15.3 🏆 |
-| [RAMC](https://www.openslr.org/123/)                                                                                        | 22.2 | 20.8 | 10.5 🏆 | 10.5 |
-| [REPERE](https://www.islrn.org/resources/360-758-359-485-0/) (phase2)                                                       | 7.9  |  8.9 | 7.4 🏆 | 7.8 |
-| [VoxConverse](https://github.com/joonson/voxconverse) (v0.3)                                                                | 11.2 | 11.2 | 8.5 🏆 | 8.6 |
+| Benchmark (last updated in 2026-10) | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://docs.pyannote.ai">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> | 
+| ----------------------------------- | ---------------------------------------------------------------------------------- | -----------------------------------------------------| -------------------------------------------------------------------- |
+| [AISHELL-4](https://arxiv.org/abs/2104.03603)                                                                               | 11.7 | 11.4    | 10.4 🏆 |
+| [AliMeeting](https://www.openslr.org/119/) (channel 1)                                                                      | 20.3 | 15.2    | 11.1 🏆 |
+| [AMI](https://groups.inf.ed.ac.uk/ami/corpus/) (IHM)                                                                        | 17.0 | 12.9    | 10.7 🏆 |
+| [AMI](https://groups.inf.ed.ac.uk/ami/corpus/) (SDM)                                                                        | 19.9 | 15.6    | 13.5 🏆 |
+| [AVA-AVD](https://arxiv.org/abs/2111.14448)                                                                                 | 44.6 | 37.1    | 32.7 🏆 |
+| [CALLHOME](https://catalog.ldc.upenn.edu/LDC2001S97) ([part 2](https://github.com/BUTSpeechFIT/CALLHOME_sublists/issues/1)) | 26.7 | 16.6    | 15.6 🏆 |
+| [DIHARD 3](https://catalog.ldc.upenn.edu/LDC2022S14) ([full](https://arxiv.org/abs/2012.01477))                             | 20.2 | 14.7    | 14.5 🏆 |
+| [Ego4D](https://arxiv.org/abs/2110.07058) (dev.)                                                                            | 46.8 | 39.0    | 36.8 🏆 |
+| [MSDWild](https://github.com/X-LANCE/MSDWILD)                                                                               | 22.8 | 17.3    | 15.3 🏆 |
+| [RAMC](https://www.openslr.org/123/)                                                                                        | 20.8 | 10.5 🏆 | 10.5 🏆 |
+| [REPERE](https://www.islrn.org/resources/360-758-359-485-0/) (phase2)                                                       |  8.9 | 7.4  🏆 | 7.8     |
+| [VoxConverse](https://github.com/joonson/voxconverse) (v0.3)                                                                | 11.2 | 8.5  🏆 | 8.6     |
 
 __[Diarization error rate](http://pyannote.github.io/pyannote-metrics/reference.html#diarization) (in %, the lower, the better)__
 
@@ -79,15 +79,14 @@ Our models achieve competitive performance across multiple public diarization da
 [`precision-3`](https://www.pyannote.ai/blog/precision-3) premium model further improves accuracy and processing speed, and brings additional features.
 
 | Features | <a href="https://hf.co/pyannote/speaker-diarization-community-1">`community-1`</a> | <a href="https://docs.pyannote.ai">`precision-2`</a> | <a href="https://www.pyannote.ai/blog/precision-3">`precision-3`</a> |
-| -------------- | ----------- | ----------- | ----------- |
-| Set exact/min/max number of speakers | ✅ | ✅ | ✅ |
-| Exclusive speaker diarization (for transcription) | ✅ | ✅ | ✅ |
-| Segmentation confidence scores | ❌ | ✅ | ✅ |
-| Speaker confidence scores | ❌ | ✅ | ✅ |
-| Voiceprinting | ❌ | ✅ | ✅ |
-| Speaker identification | ❌ | ✅ | ✅ |
-| STT Orchestration | ❌ | ✅ | ✅ |
-| Time to process 1h of audio (on H100) | 37s | 14s | 3.8s |
+| ------------------------------------------------------- | --- | -- | --- |
+| Set exact/min/max number of speakers                    | ✅  | ✅ | ✅ |
+| Exclusive speaker diarization (for transcription)       | ✅  | ✅ | ✅ |
+| Voiceprinting & speaker identification                  | ❌  | ✅ | ✅ |
+| STT Orchestration                                       | ❌  | ✅ | ✅ |
+| Speech & crosstalk sensitivity knobs                    | ❌  | ❌ | ✅ |
+| Frame-level speech, crosstalk, & speaker probability    | ❌  | ❌ | ✅ |
+| Time to process 1h of audio (on H100)                   | 37s | 14s | 4s |
 
 Create a [`pyannoteAI`](https://dashboard.pyannote.ai) account, change one line of code, and enjoy free cloud credits to try [`precision-3`](https://www.pyannote.ai/blog/precision-3) premium diarization:
 
